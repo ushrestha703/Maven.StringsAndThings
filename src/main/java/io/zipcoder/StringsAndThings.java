@@ -14,9 +14,24 @@ public class StringsAndThings {
      *           countYZ("day fez"); // Should return 2
      *           countYZ("day fyyyz"); // Should return 2
      */
-    public Integer countYZ(String input){
-        return null;
+    public Integer countYZ(String input) {
+
+        int count = 0;
+
+        for (int i = 0; i < input.length(); i++)
+        {
+            if (input.charAt(i) == 'y' || input.charAt(i) == 'z')
+            {
+                if (i < input.length() - 1 && !Character.isLetter(input.charAt(i + 1)))
+                count++;
+               else if (i == input.length() - 1)
+                    count++;
+            }
+        }
+        return count;
     }
+
+
 
     /**
      * Given two strings, base and remove, return a version of the base string where all instances of the remove string have
@@ -27,8 +42,19 @@ public class StringsAndThings {
      *           removeString("Hello there", "e") //  Should return "Hllo thr"
      *           removeString("Hello there", "x") // Should return "Hello there"
      */
+
+
+
     public String removeString(String base, String remove){
-        return null;
+
+        String newValue = "";
+        String s = String.valueOf(remove);
+        for (int i = 0; i <= base.length(); i++)
+        {
+            newValue = base.replace(s,"");
+        }
+
+        return newValue;
     }
 
     /**
@@ -39,8 +65,32 @@ public class StringsAndThings {
      *           containsEqualNumberOfIsAndNot("This is notnot") // Should return true
      *           containsEqualNumberOfIsAndNot("noisxxnotyynotxisi") // Should return true
      */
-    public Boolean containsEqualNumberOfIsAndNot(String input){
-        return null;
+
+    public Boolean containsEqualNumberOfIsAndNot(String input)
+    {
+       int is = 0;
+       int not = 0;
+
+        for (int i = 0; i < input.length(); i++) {
+            if (i < input.length() - 1) {
+                String value = input.substring(i, i + 2);
+                if (value.equals("is"))
+                    is++;
+
+            }
+            if (i < input.length() - 2) {
+                String value = input.substring(i, i + 3);
+                if (value.equals("not"))
+                    not++;
+            }
+        }
+            if (is == not)
+                return true;
+            else
+                return false;
+
+
+
     }
 
     /**
@@ -51,6 +101,9 @@ public class StringsAndThings {
      *           gHappy("xxggyygxx") // Should return  false
      */
     public Boolean gIsHappy(String input){
+
+
+
         return null;
     }
 
@@ -63,6 +116,9 @@ public class StringsAndThings {
      *            countTriple("a") // Should return 0
      */
     public Integer countTriple(String input){
+
+
+
         return null;
     }
 }
