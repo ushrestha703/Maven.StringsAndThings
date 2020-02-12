@@ -78,7 +78,8 @@ public class StringsAndThings {
                     is++;
 
             }
-            if (i < input.length() - 2) {
+            if (i < input.length() - 2)
+            {
                 String value = input.substring(i, i + 3);
                 if (value.equals("not"))
                     not++;
@@ -88,8 +89,6 @@ public class StringsAndThings {
                 return true;
             else
                 return false;
-
-
 
     }
 
@@ -102,9 +101,18 @@ public class StringsAndThings {
      */
     public Boolean gIsHappy(String input){
 
+        for (int i = 0; i < input.length(); i++) {
 
-
-        return null;
+            if (input.charAt(i) == 'g') {
+                if (i > 0 && input.charAt(i - 1) == 'g')
+                    continue;
+                else if (i < input.length() - 1 && input.charAt(i + 1) == 'g')
+                    continue;
+                else
+                    return false;
+            }
+        }
+        return true;
     }
 
 
